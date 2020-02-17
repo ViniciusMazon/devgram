@@ -16,19 +16,20 @@ Ao acessar o feed, você poderá ver as fotos postadas pelos desenvolvedores. Co
 * Expo
 
 ### Minhas modificações 🔧
-* A aula estava um pouco desatualizada, tive que realizar algumas modificações para funcionar na versão atual.
+* Adicionei a feature de like
+* Alterei o StackNavigator no routes.
 * Utilizei o Expo.
-* Alteração da splash screen
-* Alteração do icon
+* Alteração da splash screen.
+* Alteração do icon.
 
 ### Utilização 🔌
 1. Clone este repositório
 2. Instale as dependências rodando `yarn install` ou `npm install`
-3. Crie um arquivo .env e configure as variáveis de ambiente seguindo o exemplo do arquivo .env.example.
+3. Rode o projeto executando `yarn start` ou `npm start`
+4. Crie um arquivo .env e configure as variáveis de ambiente seguindo o exemplo do arquivo .env.example.
 **Atenção: o ip que você deve utilizar é o que aparece em cima do QRCode do Expo**
-1. Suba o json-server executando `yarn json-server --watch ./server.json --host 192.168.1.64`
-2. Rode o projeto executando `yarn start` ou `npm start`
-3. Instale o aplicativo do Expo em seu celular [Expo Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR) e digitalize o QR Code.
+5. Suba o json-server executando `yarn json-server --watch ./server.json --host (insira o ip do expo aqui)`
+6. Instale o aplicativo do Expo em seu celular [Expo Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR) e digitalize o QR Code.
 
 ### Licença 📄
 Esse projeto está sob a licença **MIT**.
