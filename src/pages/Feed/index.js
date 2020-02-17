@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, FlatList } from 'react-native';
+import { EXPO_IP } from 'react-native-dotenv';
 
-import LazyImage from '../../components/LazyImage';
 import { Post, Header, Avatar, Name, Description, Loading } from './styles';
-
+import LazyImage from '../../components/LazyImage';
 
 export default function Feed() {
 
@@ -19,7 +19,7 @@ export default function Feed() {
     if (total && pageNumber > total) return;
     setLoading(true);
 
-    const response = await fetch(`http://192.168.1.64:3000/feed?_expand=author&_limit=5&_page=${pageNumber}`);
+    const response = await fetch(`http://${EXPO_IP}:3000/feed?_expand=author&_limit=5&_page=${pageNumber}`);
     const data = await response.json();
     const totalItems = response.headers.get('X-Total-Count');
 

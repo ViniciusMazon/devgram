@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Blank Template",
-    "slug": "instagram",
+    "name": "Devgram",
+    "slug": "devgram",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
