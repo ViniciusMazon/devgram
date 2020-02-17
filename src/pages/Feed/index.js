@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, TouchableOpacity } from 'react-native';
+import axios from 'axios';
 import { EXPO_IP } from 'react-native-dotenv';
+import { MaterialIcons } from '@expo/vector-icons';
 
-import { Post, Header, Avatar, Name, Description, Loading } from './styles';
+import { Post, Header, Avatar, Name, Content, Description, Loading } from './styles';
 import LazyImage from '../../components/LazyImage';
 
 export default function Feed() {
@@ -44,6 +46,21 @@ export default function Feed() {
     setViewable(changed.map(({ item }) => item.id));
   }, []);
 
+  async function like(item) {
+    data = {
+      "id": item.id,
+      "image": item.image,
+      "small": item.small,
+      "aspectRatio": item.aspectRatio,
+      "description": item.description,
+      "authorId": item.authorId,
+      "like": !item.like
+    }
+
+    await axios.put(`http://${EXPO_IP}:3000/feed/${item.id}`, data);
+    refreshList();
+  }
+
   return (
     <View>
       <FlatList data={feed}
@@ -67,9 +84,14 @@ export default function Feed() {
               smallSource={{ uri: item.small }}
               source={{ uri: item.image }}
             />
-            <Description>
-              <Name>{item.author.name}</Name> {item.description}
-            </Description>
+            <Content>
+              <TouchableOpacity onPress={() => like(item)}>
+                {item.like ? <MaterialIcons name="favorite" size={25} color="#c02739" /> : <MaterialIcons name="favorite-border" size={25} color="#c02739" />}
+              </TouchableOpacity>
+              <Description>
+                <Name>{item.author.name}</Name> {item.description}
+              </Description>
+            </Content>
           </Post>
         )} />
 

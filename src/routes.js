@@ -3,7 +3,7 @@ import { Image } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import logo from './assets/instagram.png';
+import logo from './assets/logo.png';
 
 import Feed from './pages/Feed';
 
